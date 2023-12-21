@@ -40,3 +40,14 @@ class Dish(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
+class Ingredient(models.Model):
+    name = models.CharField(max_length=100)
+    dishes = models.ManyToManyField(Dish, related_name="ingredients")
+
+    class Meta:
+        verbose_name = "Ingredient"
+        verbose_name_plural = "Ingredients"
+
+    def __str__(self) -> str:
+        return self.name
