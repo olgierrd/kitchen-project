@@ -3,7 +3,7 @@ from django.db import models
 
 
 class DishType(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     class Meta:
         verbose_name = "Dish Type"
@@ -27,8 +27,8 @@ class Cook(AbstractUser):
 
 
 class Dish(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(unique=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     ingredients = models.ManyToManyField("Ingredient", related_name="dishes")
     dish_type = models.ForeignKey(DishType, on_delete=models.CASCADE)
@@ -43,7 +43,7 @@ class Dish(models.Model):
 
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     class Meta:
         verbose_name = "Ingredient"

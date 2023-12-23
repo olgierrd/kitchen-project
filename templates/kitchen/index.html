@@ -1,1 +1,10 @@
 {% extends "base.html" %}
+
+{% block content %}
+  <h1>Welcome to the Grand Kitchen!</h1>
+  <h3>On our website you can observe a manage the structure of the kitchen: add, update, or delete dishes and manage our cooks.</h3>
+  <p>Number of cooks: {{ num_cooks }}</p>
+  <p>Number of dishes: {{ num_dishes }}</p>
+  <br>
+  <p>You have visited home page {{ num_visits }} time{{ num_visits|pluralize }}</p>
+{% endblock %}
