@@ -2,7 +2,7 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from django.views import generic
 
-from kitchen.models import Cook, Dish
+from kitchen.models import Cook, Dish, Ingredient
 
 
 # Create your views here.
@@ -34,7 +34,7 @@ class DishListView(generic.ListView):
 
 
 class IngredientListView(generic.ListView):
-    model = Dish
+    model = Ingredient
     template_name = "kitchen/ingredient_list.html"
     context_object_name = "ingredient_list"
     paginate_by = 5

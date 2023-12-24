@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Our ingredients:</h1>
+  {% if ingredient_list %}
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Number of dishes demanding</th>
+      </tr>
+      {% for ingredient in ingredient_list %}
+        <tr>
+          <td>{{ ingredient.name }}</td>
+          <td>{{ ingredient.dishes.count }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}
