@@ -17,7 +17,7 @@
     </tr>
     {% for dish in cook.dishes.all %}
     <tr>
-      <td>{{ dish.name }}</td>
+      <td><a href="{% url 'kitchen:dish-detail' dish.id%}">{{ dish.name }}</a></td>
       <td>{{ dish.description }}</td>
     </tr>
     {% endfor %}

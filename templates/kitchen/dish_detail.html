@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>{{ dish.name }}</h1>
+  <p><strong>Type:</strong> {% for type in dish.dish_type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  <p><strong>Description:</strong> {{ dish.description }}</p>
+  <p><strong>Price:</strong> {{ dish.price }}</p>
+  <p><strong>Cooks:</strong> {% for cook in dish.cooks.all %}<a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.username }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+ 
+{% endblock %}
