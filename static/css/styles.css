@@ -3,3 +3,12 @@
     justify-content: center;
     margin: 20px auto;
 }
+
+body {
+    margin-top: 20px;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 2px 0 2px;
+}
