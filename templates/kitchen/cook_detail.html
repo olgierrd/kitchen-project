@@ -6,7 +6,10 @@
   <p><strong>First name:</strong> {{ cook.first_name }}</p>
   <p><strong>Last name:</strong> {{ cook.last_name }}</p>
   <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
-  <p><strong>Experience:</strong> {{ cook.years_of_experience }} years</p>
+  <p>
+    <strong>Experience:</strong> {{ cook.years_of_experience }} years
+    <a href="{% url 'kitchen:cook-xp-update' cook.id %}" class="update">Update XP</a>
+  </p>
 
   
   <h3>Dishes:</h3>

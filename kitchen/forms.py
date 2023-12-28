@@ -30,3 +30,9 @@ class CookForm(UserCreationForm):
             "last_name",
             "years_of_experience",
         )
+
+
+class CookXPForm(forms.ModelForm):
+    class Meta:
+        model = Cook
+        fields = ["years_of_experience"]
