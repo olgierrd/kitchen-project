@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from kitchen.forms import IngredientForm, DishForm
+from kitchen.forms import IngredientForm, DishForm, CookForm
 from kitchen.models import Cook, Dish, Ingredient
 
 
@@ -35,6 +35,12 @@ class CookDetailView(generic.DetailView):
     model = Cook
     queryset = Cook.objects.all().prefetch_related("dishes__ingredients")
 
+
+class CookCreateView(generic.CreateView):
+    model = Cook
+    form_class = CookForm
+
+
 # <-----------Dish Views-------------->
 class DishListView(generic.ListView):
     model = Dish
@@ -49,17 +55,8 @@ class DishDetailView(generic.DetailView):
 class DishCreateView(generic.CreateView):
     model = Dish
     form_class = DishForm
-    template_name = 'kitchen/dish_form.html'
-    success_url = reverse_lazy('dish_list')
-
-    def form_valid(self, form):
-        dish = form.save(commit=False)
-        ingredient_form = IngredientForm(self.request.POST, prefix='new_ingredient')
-        if ingredient_form.is_valid():
-            new_ingredient = ingredient_form.save()
-            dish.ingredient = new_ingredient
-        dish.save()
-        return super().form_valid(form)
+    template_name = "kitchen/dish_form.html"
+    success_url = reverse_lazy("dish_list")
 
 
 # <-----------Ingredient Views-------------->
@@ -73,3 +70,10 @@ class IngredientListView(generic.ListView):
 class IngredientDetailView(generic.DetailView):
     model = Ingredient
     success_url = reverse_lazy("kitchen:ingredient-list")
+
+
+class IngredientCreateView(generic.CreateView):
+    model = Ingredient
+    form_class = IngredientForm
+    template_name = "kitchen/ingredient_form.html"
+    success_url = reverse_lazy("ingredient_list")
