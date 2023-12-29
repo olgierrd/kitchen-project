@@ -47,6 +47,11 @@ class CookXPUpdateView(generic.UpdateView):
     success_url = reverse_lazy("kitchen:cook-list")
 
 
+class CookDeleteView(generic.DeleteView):
+    model = Cook
+    success_url = reverse_lazy("kitchen:cook-list")
+
+
 # <-----------Dish Views-------------->
 class DishListView(generic.ListView):
     model = Dish
@@ -63,6 +68,17 @@ class DishCreateView(generic.CreateView):
     form_class = DishForm
     template_name = "kitchen/dish_form.html"
     success_url = reverse_lazy("dish_list")
+
+
+class DishUpdateView(generic.UpdateView):
+    model = Dish
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:dish-list")
+
+
+class DishDeleteView(generic.DeleteView):
+    model = Dish
+    success_url = reverse_lazy("kitchen:dish-list")
 
 
 # <-----------Ingredient Views-------------->
@@ -83,3 +99,14 @@ class IngredientCreateView(generic.CreateView):
     form_class = IngredientForm
     template_name = "kitchen/ingredient_form.html"
     success_url = reverse_lazy("ingredient_list")
+
+
+class IngredientUpdateView(generic.UpdateView):
+    model = Ingredient
+    fields = "__all__"
+    success_url = reverse_lazy("kitchen:ingredient-list")
+
+
+class IngredientDeleteView(generic.DeleteView):
+    model = Ingredient
+    success_url = reverse_lazy("kitchen:ingredient-list")

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>
+    {{ ingredient.name }}
+    <a href="{% url 'kitchen:ingredient-update' ingredient.id%}" class="btn btn-success link-to-page update" style="float: right">
+      Edit ingredient
+    </a>  
+    <a href="{% url 'kitchen:ingredient-delete' ingredient.id%}" class="btn btn-danger link-to-page update" style="float: right">
+      Delete ingredient
+    </a> 
+  </h1>
+  <h3>Dishes that require {{ ingredient.name }}:</h3>
+  {% for dish in ingredient.dishes.all %}
+    <p>
+    <strong>
+      <a href="{% url 'kitchen:dish-detail' dish.id %}">
+        {{ dish.name }}
+      </a>
+    </strong>
+    </p>
+  {% endfor %}
+{% endblock %}

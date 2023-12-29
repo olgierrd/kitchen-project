@@ -15,7 +15,7 @@
       </tr>
       {% for ingredient in ingredient_list %}
         <tr>
-          <td>{{ ingredient.name }}</td>
+          <td><a href="{% url 'kitchen:ingredient-detail' ingredient.id%}">{{ ingredient.name }}</a></td>
           <td>{{ ingredient.dishes.count }}</td>
         </tr>
       {% endfor %}
