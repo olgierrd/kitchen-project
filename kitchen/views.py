@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm
+from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, IngredientSearchForm
 from kitchen.models import Cook, Dish, Ingredient
 
 
@@ -91,6 +91,21 @@ class IngredientListView(generic.ListView):
     template_name = "kitchen/ingredient_list.html"
     context_object_name = "ingredient_list"
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
+        context = super(IngredientListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_form"] = IngredientSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self) -> Ingredient:
+        queryset = Ingredient.objects.all()
+        name = self.request.GET.get("name")
+        if name:
+            return queryset.filter(name__icontains=name)
+        return queryset
 
 
 class IngredientDetailView(LoginRequiredMixin, generic.DetailView):
