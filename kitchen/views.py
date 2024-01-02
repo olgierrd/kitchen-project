@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, IngredientSearchForm
+from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, IngredientSearchForm, DishSearchForm
 from kitchen.models import Cook, Dish, Ingredient
 
 
@@ -60,6 +60,21 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 class DishListView(generic.ListView):
     model = Dish
     paginate_by = 5
+
+    def get_context_data(self, *, object_list=None, **kwargs) -> dict:
+        context = super(DishListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name", "")
+        context["search_form"] = DishSearchForm(
+            initial={"name": name}
+        )
+        return context
+
+    def get_queryset(self) -> Dish:
+        queryset = Dish.objects.all().prefetch_related("ingredients")
+        name = self.request.GET.get("name")
+        if name:
+            return queryset.filter(name__icontains=name)
+        return queryset
 
 
 class DishDetailView(LoginRequiredMixin, generic.DetailView):
