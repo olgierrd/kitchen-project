@@ -13,6 +13,7 @@
   <section class="main-content">
     <p><strong>Type:</strong> {% for type in dish.dish_type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
     <p><strong>Description:</strong> {{ dish.description }}</p>
+    <p><strong>Ingredients:</strong> {% for ingredient in dish.ingredients.all %}{{ ingredient.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
     <p><strong>Price:</strong> {{ dish.price }}</p>
     <p><strong>Cooks:</strong> {% for cook in dish.cooks.all %}<a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
   </section>

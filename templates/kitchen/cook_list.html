@@ -12,12 +12,14 @@
     <table class="table">
       <tr>
         <th>ID</th>
+        <th>Full name</th>
         <th>Username</th>
         <th>Years of experience</th>
       </tr>
       {% for cook in cook_list %}
         <tr>
           <td>{{ cook.id }}</td>
+          <td>{{ cook.get_full_name }}</td>
           <td><a href="{% url 'kitchen:cook-detail' cook.id%}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
           <td>{{ cook.years_of_experience }}</td>
         </tr>
