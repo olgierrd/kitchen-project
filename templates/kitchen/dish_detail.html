@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h1>
-    {{ dish.name }}
+    <div class="header-content">{{ dish.name }}</div>
     <a href="{% url 'kitchen:dish-update' dish.id%}" class="btn btn-success link-to-page update" style="float: right">
       Edit dish
     </a>  
@@ -10,10 +10,10 @@
       Delete dish
     </a> 
   </h1>
-  <p><strong>Type:</strong> {% for type in dish.dish_type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-  <p><strong>Description:</strong> {{ dish.description }}</p>
-  <p><strong>Price:</strong> {{ dish.price }}</p>
-  <p><strong>Cooks:</strong> {% for cook in dish.cooks.all %}<a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-
- 
+  <section class="main-content">
+    <p><strong>Type:</strong> {% for type in dish.dish_type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p><strong>Description:</strong> {{ dish.description }}</p>
+    <p><strong>Price:</strong> {{ dish.price }}</p>
+    <p><strong>Cooks:</strong> {% for cook in dish.cooks.all %}<a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  </section>
 {% endblock %}

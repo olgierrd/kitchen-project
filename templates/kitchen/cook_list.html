@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>
-    Our cooks:
-    <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page" style="float: right">
+  <h1 class="header-content">
+    <div class="header-content">Our cooks:</div>
+    
+    <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page">
       Add cook
     </a>
   </h1>
-  {% if cook_list %}
+  <section class="main-content">
+    {% if cook_list %}
     <table class="table">
       <tr>
         <th>ID</th>
@@ -24,4 +26,5 @@
   {% else %}
     <p>No cooks are available.</p>
   {% endif %}
+  </section>
 {% endblock %}

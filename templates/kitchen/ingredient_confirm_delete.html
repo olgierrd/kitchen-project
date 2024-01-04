@@ -2,7 +2,8 @@
 
 {% block content %}
   <h1>Delete ingredient?</h1>
-  <p>This ingredient is in these dishes: 
+  <section class="main-content">
+    <p>This ingredient is in these dishes: 
     {% for dish in ingredient.dishes.all %}
       {{ dish.name }}
     {% endfor %}
@@ -11,5 +12,7 @@
     {% csrf_token %}
 
     <input type="submit" value="Yes" class="btn btn-danger">
-  </form>
+    </form>
+  </section>
+
 {% endblock %}

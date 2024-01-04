@@ -10,14 +10,16 @@
       Delete ingredient
     </a> 
   </h1>
-  <h3>Dishes that require {{ ingredient.name }}:</h3>
-  {% for dish in ingredient.dishes.all %}
-    <p>
-    <strong>
-      <a href="{% url 'kitchen:dish-detail' dish.id %}">
-        {{ dish.name }}
-      </a>
-    </strong>
-    </p>
-  {% endfor %}
+  <section class="main-content">
+    <h3>Dishes that require {{ ingredient.name }}:</h3>
+    {% for dish in ingredient.dishes.all %}
+      <p>
+      <strong>
+        <a href="{% url 'kitchen:dish-detail' dish.id %}">
+          {{ dish.name }}
+        </a>
+      </strong>
+      </p>
+    {% endfor %} 
+  </section>
 {% endblock %}

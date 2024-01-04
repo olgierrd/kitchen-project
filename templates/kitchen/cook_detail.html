@@ -7,27 +7,29 @@
       Delete cook
     </a> 
   </h1>
+  <section class="main-content">
+    <p><strong>First name:</strong> {{ cook.first_name }}</p>
+    <p><strong>Last name:</strong> {{ cook.last_name }}</p>
+    <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
+    <p>
+      <strong>Experience:</strong> {{ cook.years_of_experience }} years
+      <a href="{% url 'kitchen:cook-xp-update' cook.id %}" class="update">Update XP</a>
+    </p>
   
-  <p><strong>First name:</strong> {{ cook.first_name }}</p>
-  <p><strong>Last name:</strong> {{ cook.last_name }}</p>
-  <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
-  <p>
-    <strong>Experience:</strong> {{ cook.years_of_experience }} years
-    <a href="{% url 'kitchen:cook-xp-update' cook.id %}" class="update">Update XP</a>
-  </p>
-
+    
+    <h3>Dishes:</h3>
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      {% for dish in cook.dishes.all %}
+      <tr>
+        <td><a href="{% url 'kitchen:dish-detail' dish.id%}">{{ dish.name }}</a></td>
+        <td>{{ dish.description }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </section>
   
-  <h3>Dishes:</h3>
-  <table class="table">
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-    {% for dish in cook.dishes.all %}
-    <tr>
-      <td><a href="{% url 'kitchen:dish-detail' dish.id%}">{{ dish.name }}</a></td>
-      <td>{{ dish.description }}</td>
-    </tr>
-    {% endfor %}
-  </table>
 {% endblock %}

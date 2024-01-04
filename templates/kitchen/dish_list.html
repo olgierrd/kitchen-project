@@ -3,12 +3,13 @@
 
 {% block content %}
   <h1>
-    Our menu:
-    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page" style="float: right">
+  <div class="header-content">Our menu:</div>
+    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
       Add dish
     </a>
   </h1>
-  <form action="" method="get" class="form-inline">
+  <section class="main-content">
+    <form action="" method="get" class="form-inline">
   {{ search_form|crispy }}
   <input type="submit" value="🔍" class="btn btn-secondary">
   </form>
@@ -30,4 +31,5 @@
   {% else %}
     <p>No dishes in the menu yet.</p>
   {% endif %}
+  </section>
 {% endblock %}

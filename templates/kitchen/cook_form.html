@@ -3,10 +3,13 @@
 
 {% block content %}
   <h1>Create cook</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
-
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+  <section class="main-content">
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ form|crispy }}
+  
+      <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+  </section>
+  
 {% endblock %}
