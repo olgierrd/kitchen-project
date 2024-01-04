@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h1>
-    {{ ingredient.name }}
+    <div class="header-content">{{ ingredient.name }}</div>
     <a href="{% url 'kitchen:ingredient-update' ingredient.id%}" class="btn btn-success link-to-page update" style="float: right">
       Edit ingredient
     </a>  

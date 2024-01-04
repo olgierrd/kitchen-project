@@ -2,14 +2,16 @@
 
 {% block content %}
 	<h1>
-    Cook: {{ cook.username }}
+    Cook: {% if cook.first_name and cook.last_name %}{{ cook.get_full_name }}{% else %}{{ cook.username }}{% endif %}
     <a href="{% url 'kitchen:cook-delete' cook.id%}" class="btn btn-danger link-to-page update" style="float: right">
       Delete cook
     </a> 
   </h1>
   <section class="main-content">
-    <p><strong>First name:</strong> {{ cook.first_name }}</p>
-    <p><strong>Last name:</strong> {{ cook.last_name }}</p>
+    {% if cook.get_full_name %}
+      <p><strong>First name:</strong> {{ cook.first_name }}</p>
+      <p><strong>Last name:</strong> {{ cook.last_name }}</p>
+    {% endif %}
     <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
     <p>
       <strong>Experience:</strong> {{ cook.years_of_experience }} years
