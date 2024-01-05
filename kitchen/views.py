@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, IngredientSearchForm, DishSearchForm
-from kitchen.models import Cook, Dish, Ingredient
+from kitchen.models import Cook, Dish, Ingredient, DishType
 
 
 # Create your views here.
@@ -59,7 +59,6 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
 # <-----------Dish Views-------------->
 class DishListView(generic.ListView):
     model = Dish
-    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs) -> dict:
         context = super(DishListView, self).get_context_data(**kwargs)
@@ -67,6 +66,7 @@ class DishListView(generic.ListView):
         context["search_form"] = DishSearchForm(
             initial={"name": name}
         )
+        context["dish_types"] = DishType.objects.all()
         return context
 
     def get_queryset(self) -> Dish:

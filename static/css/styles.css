@@ -61,3 +61,11 @@ p {
 .last {
     margin-bottom: 20px;
 }
+
+.description-text {
+    text-align: justify;
+}
+
+.menu {
+    width: initial;
+}

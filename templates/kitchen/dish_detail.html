@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 	<h1>
@@ -11,6 +12,7 @@
     </a> 
   </h1>
   <section class="main-content">
+{#    <img src="{% static 'images/'|add:dish.name.split.0|lower|add:'.jpeg' %}">#}
     <p><strong>Type:</strong> {% for type in dish.dish_type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
     <p><strong>Description:</strong> {{ dish.description }}</p>
     <p><strong>Ingredients:</strong> {% for ingredient in dish.ingredients.all %}{{ ingredient.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
