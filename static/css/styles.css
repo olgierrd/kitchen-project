@@ -69,3 +69,27 @@ p {
 .menu {
     width: initial;
 }
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-count {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: black;
+}
+
+.visit-count {
+  color: #f00;
+  font-weight: bold;
+}
