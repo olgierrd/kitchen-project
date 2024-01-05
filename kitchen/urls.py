@@ -5,6 +5,7 @@ from kitchen.views import index, CookListView, DishListView, IngredientListView,
     DishDeleteView, CookDeleteView, IngredientUpdateView, IngredientDeleteView
 
 urlpatterns = [
+    # <-----------Home------------------>
     path("", index, name="index"),
     # <-----------Cook Views-------------->
     path("cooks/", CookListView.as_view(), name="cook-list"),
