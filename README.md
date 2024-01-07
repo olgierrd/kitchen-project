@@ -1,13 +1,14 @@
 # Kitchen Project
 
-Kitchen Project is a web application that allows users to manage the structure of a kitchen. Users can add, update, or delete dishes and manage cooks.
+Kitchen Project is a Django-based web application that allows users to manage the structure of a kitchen. Users can add, update, or delete dishes and manage cooks. The project also includes user authentication and search functionality.
 
 ## Features
 
-- User authentication: Users can  log in, and log out. Admin users can also create new users.
-- Cook management: Users can view a list of cooks, view details of a cook, and update a cook's experience.
-- Dish management: Users can view a list of dishes, view details of a dish, and update a dish.
-- Ingredient management: Users can view a list of ingredients, view details of an ingredient, and update an ingredient.
+- User Authentication: Users can create an account, log in, and log out.
+- Cook Management: Users can view a list of cooks, view details of a cook, and update a cook's experience.
+- Dish Management: Users can view a list of dishes, view details of a dish, and update a dish.
+- Ingredient Management: Users can view a list of ingredients, view details of an ingredient, and update an ingredient.
+- Search Functionality: Users can search for dishes and ingredients by name.
 
 ## Getting Started
 

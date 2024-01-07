@@ -93,3 +93,7 @@ p {
   color: #f00;
   font-weight: bold;
 }
+
+.form-inline {
+    margin: 10px 0;
+}

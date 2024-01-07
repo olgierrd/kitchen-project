@@ -37,7 +37,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
-    queryset = Cook.objects.all().prefetch_related("dishes__ingredients")
+    queryset = Cook.objects.prefetch_related("dishes__ingredients")
 
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):

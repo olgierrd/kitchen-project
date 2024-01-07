@@ -6,8 +6,7 @@ class DishType(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
     class Meta:
-        verbose_name = "Dish Type"
-        verbose_name_plural = "Dish Types"
+        ordering = ["name"]
 
     def __str__(self) -> str:
         return self.name
@@ -17,10 +16,6 @@ class Cook(AbstractUser):
     years_of_experience = models.IntegerField(null=True, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-
-    class Meta:
-        verbose_name = "Cook"
-        verbose_name_plural = "Cooks"
 
     def __str__(self) -> str:
         return f"{self.first_name} {self.last_name} ({self.username})"
@@ -35,8 +30,7 @@ class Dish(models.Model):
     cooks = models.ManyToManyField(Cook, related_name="dishes")
 
     class Meta:
-        verbose_name = "Dish"
-        verbose_name_plural = "Dishes"
+        ordering = ["name"]
 
     def __str__(self) -> str:
         return self.name
@@ -46,8 +40,7 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
     class Meta:
-        verbose_name = "Ingredient"
-        verbose_name_plural = "Ingredients"
+        ordering = ["name"]
 
     def __str__(self) -> str:
         return self.name

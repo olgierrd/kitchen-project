@@ -5,7 +5,6 @@ from kitchen.models import Ingredient, Dish, Cook, DishType
 
 
 class ModelTests(TestCase):
-    # <----- str tests ----->
     def test_ingredient_str(self) -> None:
         ingredient = Ingredient.objects.create(name="Test Ingredient")
         self.assertEqual(str(ingredient), "Test Ingredient")
@@ -45,4 +44,3 @@ class ModelTests(TestCase):
         )
         self.assertTrue(cook.check_password("testpass"))
         self.assertNotEqual(cook.password, password)
-

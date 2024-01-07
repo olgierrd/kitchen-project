@@ -2,7 +2,7 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-
+<section class="main-content">
 {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -12,6 +12,8 @@
 {% if next %}
   <p>Please log in to see this page.</p>
 {% endif %}
+
+</section>
 
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
