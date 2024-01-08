@@ -9,9 +9,8 @@ Kitchen Project is a Django-based web application that allows users to manage th
 - Dish Management: Users can view a list of dishes, view details of a dish, and update a dish.
 - Ingredient Management: Users can view a list of ingredients, view details of an ingredient, and update an ingredient.
 - Search Functionality: Users can search for dishes and ingredients by name.
-
+![kitchen-data-structure.png](kitchen-data-structure.png)
 ## Getting Started
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
