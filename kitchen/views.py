@@ -10,9 +10,6 @@ from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, Ingred
 from kitchen.models import Cook, Dish, Ingredient, DishType
 
 
-# Create your views here.
-
-# home page
 @login_required
 def index(request: HttpRequest) -> HttpResponse:
     """View function for the home page of the site."""
@@ -29,7 +26,6 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "kitchen/index.html", context=context)
 
 
-# <-----------Cook Views-------------->
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
     paginate_by = 5
@@ -56,7 +52,6 @@ class CookDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:cook-list")
 
 
-# <-----------Dish Views-------------->
 class DishListView(generic.ListView):
     model = Dish
 
@@ -100,7 +95,6 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("kitchen:dish-list")
 
 
-# <-----------Ingredient Views-------------->
 class IngredientListView(LoginRequiredMixin, generic.ListView):
     model = Ingredient
     template_name = "kitchen/ingredient_list.html"
