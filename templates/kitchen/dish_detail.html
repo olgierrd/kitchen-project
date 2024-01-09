@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+	<h1>
+    <div class="header-content">{{ dish.name }}</div>
+    <a href="{% url 'kitchen:dish-update' dish.id%}" class="btn btn-success link-to-page update" style="float: right">
+      Edit dish
+    </a>  
+    <a href="{% url 'kitchen:dish-delete' dish.id%}" class="btn btn-danger link-to-page update" style="float: right">
+      Delete dish
+    </a> 
+  </h1>
+  <section class="main-content">
+{#    <img src="{% static 'images/'|add:dish.name.split.0|lower|add:'.jpeg' %}">#}
+    <p><strong>Type:</strong> {% for type in dish.dish_type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p><strong>Description:</strong> {{ dish.description }}</p>
+    <p><strong>Ingredients:</strong> {% for ingredient in dish.ingredients.all %}{{ ingredient.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    <p><strong>Price:</strong> {{ dish.price }}</p>
+    <p><strong>Cooks:</strong> {% for cook in dish.cooks.all %}<a href="{% url 'kitchen:cook-detail' cook.id %}">{{ cook.first_name }} {{ cook.last_name }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+  </section>
+{% endblock %}

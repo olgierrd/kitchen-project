@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+	<h1>
+    <div class="header-content">Our ingredients:</div>
+    <a href="{% url 'kitchen:ingredient-create' %}" class="btn btn-primary link-to-page" style="float: right">
+      Add ingredient
+    </a>
+  </h1>
+  <section class="main-content">
+    <form action="" method="get" class="form-inline">
+    {{ search_form|crispy }}
+    <input type="submit" value="🔍" class="btn btn-secondary">
+    </form>
+    {% if ingredient_list %}
+      <table class="table">
+        <tr>
+          <th>Name</th>
+          <th>Number of dishes demanding</th>
+        </tr>
+        {% for ingredient in ingredient_list %}
+          <tr>
+            <td><a href="{% url 'kitchen:ingredient-detail' ingredient.id%}">{{ ingredient.name }}</a></td>
+            <td>{{ ingredient.dishes.count }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </section>
+
+{% endblock %}
