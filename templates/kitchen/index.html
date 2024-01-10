@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="header-content">Welcome to the Grand Kitchen!</h1>
+  <section class="main-content">
+    <h3>On our website you can observe and manage the structure of the kitchen: add, update, or delete dishes and manage our cooks.</h3>
+    <br>
+  <div class="statistics">
+    <div class="stat-item">
+      <span class="stat-count">{{ num_cooks }}</span>
+      <br>
+      <span class="stat-label">Cooks</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-count">{{ num_dishes }}</span>
+      <br>
+      <span class="stat-label">Dishes</span>
+    </div>
+  </div>
+
+  <br>
+  <p>You have visited home page <span class="visit-count">{{ num_visits }}</span> time{{ num_visits|pluralize }}</p>
+
+  </section>
+{% endblock %}

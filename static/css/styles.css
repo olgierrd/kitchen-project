@@ -1,0 +1,99 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    line-height: 1.6em;
+    margin-top: 20px;
+    padding: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.65)), url('../images/empty_kitchen_wide.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.main-content {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 10px 10px;
+
+}
+
+h1 {
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px;
+    display: flex; /* Added */
+    justify-content: space-between; /* Added */
+    align-items: center; /* Added */
+}
+
+p {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    line-height: 1.8em;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.link-to-page {
+    float: right;
+    margin: 0 10px 0 2px;
+    white-space: nowrap;
+}
+
+.update {
+    margin: 0 10px 0 10px;
+}
+
+.last {
+    margin-bottom: 20px;
+}
+
+.description-text {
+    text-align: justify;
+}
+
+.menu {
+    width: initial;
+}
+.statistics {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-count {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: black;
+}
+
+.visit-count {
+  color: #f00;
+  font-weight: bold;
+}
+
+.form-inline {
+    margin: 10px 0;
+}

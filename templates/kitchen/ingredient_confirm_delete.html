@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Delete ingredient?</h1>
+  <section class="main-content">
+    <p>This ingredient is in these dishes: 
+    {% for dish in ingredient.dishes.all %}
+      {{ dish.name }}
+    {% endfor %}
+  </p>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Yes" class="btn btn-danger">
+    </form>
+  </section>
+
+{% endblock %}
