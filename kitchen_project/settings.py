@@ -88,7 +88,7 @@ DATABASES = {
     }
 }
 
-DATABASE_URL = "postgres://cehnxwbf:QcB8iaSxqJQy2yLAKCRFnmSt-nSZQZNu@balarama.db.elephantsql.com/cehnxwbf"
+# DATABASE_URL = "postgres://cehnxwbf:QcB8iaSxqJQy2yLAKCRFnmSt-nSZQZNu@balarama.db.elephantsql.com/cehnxwbf"
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
