@@ -30,7 +30,7 @@ DEBUG = "RENDER" not in os.environ
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap3"
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "kitchen",
-    "crispy_bootstrap4",
+    "crispy_bootstrap3",
     "crispy_forms",
 ]
 
