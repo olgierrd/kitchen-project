@@ -28,7 +28,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = "RENDER" not in os.environ
 
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "kitchen-management-5fmp.onrender.com"]
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 # Application definition
