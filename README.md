@@ -2,6 +2,7 @@
 
 Kitchen Project is a Django-based web application that allows users to manage the structure of a kitchen. Users can add, update, or delete dishes and manage cooks. The project also includes user authentication and search functionality.
 
+URL: https://kitchen-management-5fmp.onrender.com
 ## Features
 
 - User Authentication: Users can create an account, log in, and log out.
