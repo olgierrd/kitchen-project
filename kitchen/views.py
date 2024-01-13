@@ -6,7 +6,8 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, IngredientSearchForm, DishSearchForm
+from kitchen.forms import IngredientForm, DishForm, CookForm, CookXPForm, IngredientSearchForm, DishSearchForm, \
+    DishTypeForm
 from kitchen.models import Cook, Dish, Ingredient, DishType
 
 
@@ -138,3 +139,10 @@ class IngredientUpdateView(LoginRequiredMixin, generic.UpdateView):
 class IngredientDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Ingredient
     success_url = reverse_lazy("kitchen:ingredient-list")
+
+
+class DishTypeCreateView(LoginRequiredMixin, generic.CreateView):
+    model = DishType
+    form_class = DishTypeForm
+    template_name = "kitchen/dishtype_form.html"
+    success_url = reverse_lazy("kitchen:dish-list")

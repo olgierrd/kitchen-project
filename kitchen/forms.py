@@ -2,7 +2,13 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
-from kitchen.models import Dish, Ingredient, Cook
+from kitchen.models import Dish, Ingredient, Cook, DishType
+
+
+class DishTypeForm(forms.ModelForm):
+    class Meta:
+        model = DishType
+        fields = "__all__"
 
 
 class IngredientForm(forms.ModelForm):
