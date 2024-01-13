@@ -43,4 +43,5 @@ urlpatterns = [
     path("ingredients/<int:pk>/delete/", IngredientDeleteView.as_view(), name="ingredient-delete"),
 ]
 
+
 app_name = "kitchen"
